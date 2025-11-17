@@ -1,0 +1,18 @@
+/*
+    名称：DUAN 破解脚本（Loon版）
+    功能：解锁订阅状态
+    作者：匿名
+    声明：仅供学习，禁止商用
+*/
+
+let body = $response.body;
+
+if (body) {
+    // 替换 inactive -> active
+    body = body.replace(/"state":"inactive"/g, '"state":"active"');
+    body = body.replace(/"allow":false/g, '"allow":true');
+
+    $done({ body });
+} else {
+    $done({});
+}
